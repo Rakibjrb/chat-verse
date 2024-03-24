@@ -4,6 +4,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { ImSpinner9 } from "react-icons/im";
 import PropTypes from "prop-types";
 import useAuth from "../../../../Hooks/auth/useAuth";
+import { Link } from "react-router-dom";
 
 const SignUp = ({ setIsOpen }) => {
   const [loading, setLoading] = useState(false);
@@ -109,16 +110,25 @@ const SignUp = ({ setIsOpen }) => {
           )}
         </div>
       </div>
-      <button
-        type="submit"
-        className="flex justify-center bg-green-500 hover:bg-gray-300 py-3 rounded-md uppercase font-rubik transition-colors duration-200"
-      >
-        {loading ? (
-          <ImSpinner9 className="text-xl animate-spin" />
-        ) : (
-          "Create Account"
-        )}
-      </button>
+      <div className="w-full">
+        <button
+          type="submit"
+          className="w-full flex justify-center bg-green-500 hover:bg-gray-300 py-3 rounded-md uppercase font-rubik transition-colors duration-200"
+        >
+          {loading ? (
+            <ImSpinner9 className="text-xl animate-spin" />
+          ) : (
+            "Create Account"
+          )}
+        </button>
+        <h3 className="text-center text-xl my-3">OR</h3>
+        <Link
+          to="/login"
+          className="w-full flex justify-center bg-green-400 hover:bg-gray-300 py-3 rounded-md uppercase font-rubik transition-colors duration-200"
+        >
+          Sign In
+        </Link>
+      </div>
     </form>
   );
 };

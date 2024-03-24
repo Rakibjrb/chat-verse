@@ -4,11 +4,13 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { ImSpinner9 } from "react-icons/im";
 import PropTypes from "prop-types";
 import useAuth from "../../../../Hooks/auth/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = ({ setIsOpen }) => {
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
-  const { emailPasswordSignIn } = useAuth();
+  const { emailPasswordSignIn, setLoading: userLoading } = useAuth();
+  const navigate = useNavigate();
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -21,11 +23,18 @@ const SignIn = ({ setIsOpen }) => {
     setLoading(true);
     emailPasswordSignIn(info.email, info.password)
       .then(() => {
-        setLoading(false);
-        setIsOpen(false);
-        toast.success("Sign In successful");
         e.target.email.value = "";
         e.target.password.value = "";
+        userLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+          toast.success("Sign In successful");
+          navigate("/dashboard");
+        }, 1000);
+
+        if (setIsOpen) {
+          setIsOpen(false);
+        }
       })
       .catch(() => {
         setLoading(false);

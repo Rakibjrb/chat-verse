@@ -4,7 +4,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import logoLight from "../../assets/Logo/logo-light.png";
 import Modal from "../../Components/Shared/Modal/Modal";
-import SignIn from "./User/SignUp/SignIn";
+import SignIn from "./User/SignIn/SignIn";
 
 const links = (
   <>
