@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../Components/Shared/Button/Button";
 import Modal from "../../Components/Shared/Modal/Modal";
 import bannerImage from "../../assets/mainHome/home-banner.png";
 import Nav from "./Nav";
 import SignUp from "./User/SignUp/SignUp";
+import useAuth from "../../Hooks/auth/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loading && user) {
+      navigate("/dashboard");
+    }
+  }, [loading, user, navigate]);
 
   return (
     <>
