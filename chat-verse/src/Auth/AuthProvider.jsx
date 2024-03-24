@@ -5,7 +5,9 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext(null);
 
@@ -23,12 +25,19 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const logout = () => {
+    signOut(auth)
+      .then(() => toast.success("sign out success"))
+      .catch(() => toast.error("something went wrong"));
+  };
+
   const data = {
     user,
     loading,
     setLoading,
     emailPasswordSignUp,
     emailPasswordSignIn,
+    logout,
   };
 
   useEffect(() => {
