@@ -4,6 +4,7 @@ import auth from "./auth";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 export const AuthContext = createContext(null);
@@ -15,10 +16,14 @@ const AuthProvider = ({ children }) => {
   const emailPasswordSignUp = (email, password) =>
     createUserWithEmailAndPassword(auth, email, password);
 
+  const emailPasswordSignIn = (email, password) =>
+    signInWithEmailAndPassword(auth, email, password);
+
   const data = {
     user,
     loading,
     emailPasswordSignUp,
+    emailPasswordSignIn,
   };
 
   useEffect(() => {

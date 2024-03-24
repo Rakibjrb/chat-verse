@@ -36,7 +36,7 @@ const Home = () => {
       </div>
 
       <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-        <SignUp />
+        <SignUp setIsOpen={setIsOpen} />
       </Modal>
     </>
   );

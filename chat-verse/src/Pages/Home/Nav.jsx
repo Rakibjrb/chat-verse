@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import logoLight from "../../assets/Logo/logo-light.png";
+import Modal from "../../Components/Shared/Modal/Modal";
+import SignIn from "./User/SignUp/SignIn";
 
 const links = (
   <>
@@ -21,13 +23,11 @@ const links = (
         Contact Us
       </NavLink>
     </li>
-    <li className="px-4 py-2 bg-green-500 hover:bg-gray-300 transition-colors rounded-md text-center lg:text-left">
-      <button className={" text-xl"}>Sign In</button>
-    </li>
   </>
 );
 
 const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(false);
   const navRef = useRef();
 
@@ -55,7 +55,15 @@ const Nav = () => {
             src={logoLight}
             alt="chatverse logo"
           />
-          <ul className="items-center gap-4 hidden lg:flex">{links}</ul>
+          <ul className="items-center gap-4 hidden lg:flex">
+            {links}
+            <li
+              onClick={() => setIsOpen(true)}
+              className="text-xl hover:cursor-pointer px-4 py-2 bg-green-500 hover:bg-gray-300 transition-colors rounded-md text-center lg:text-left"
+            >
+              Sign In
+            </li>
+          </ul>
           <div className="lg:hidden">
             <button onClick={() => setShow(!show)} className="text-2xl pr-2">
               {show ? <IoClose /> : <FaBarsStaggered />}
@@ -67,10 +75,19 @@ const Nav = () => {
               } transition-all duration-300`}
             >
               {links}
+              <li
+                onClick={() => setIsOpen(true)}
+                className="text-xl hover:cursor-pointer px-4 py-2 bg-green-500 hover:bg-gray-300 transition-colors rounded-md text-center lg:text-left"
+              >
+                Sign In
+              </li>
             </ul>
           </div>
         </nav>
       </div>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+        <SignIn setIsOpen={setIsOpen} />
+      </Modal>
     </>
   );
 };
