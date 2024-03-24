@@ -7,21 +7,22 @@ import logoLight from "../../assets/Logo/logo-light.png";
 const links = (
   <>
     <li>
-      <NavLink
-        className={"text-xl uppercase hover:text-green-400 transition-colors"}
-      >
+      <NavLink className={"text-xl hover:text-green-500 transition-colors"}>
+        Features
+      </NavLink>
+    </li>
+    <li>
+      <NavLink className={"text-xl hover:text-green-500 transition-colors"}>
         Feedback
       </NavLink>
     </li>
     <li>
-      <NavLink
-        className={"text-xl uppercase hover:text-green-400 transition-colors"}
-      >
+      <NavLink className={"text-xl hover:text-green-500 transition-colors"}>
         Contact Us
       </NavLink>
     </li>
-    <li className="px-3 py-1 bg-green-400 hover:bg-gray-300 transition-colors rounded-md text-center lg:text-left">
-      <NavLink className={" text-xl uppercase"}>Join Now</NavLink>
+    <li className="px-4 py-2 bg-green-500 hover:bg-gray-300 transition-colors rounded-md text-center lg:text-left">
+      <NavLink className={" text-xl"}>Join Now</NavLink>
     </li>
   </>
 );
