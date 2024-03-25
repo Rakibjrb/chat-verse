@@ -2,10 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main/Main";
 import Home from "../Pages/Home/Home";
 import Dashboard from "../Layout/Dashboard/Dashboard";
-import UserHome from "../Layout/Dashboard/UserHome/UserHome";
 import PrivateRoutes from "./PrivateRoutes";
 import SignInPage from "../Pages/SignIn/SignInPage";
 import HomePage from "../Pages/DashboardUserPages/Home/Home";
+import UserDashboard from "../Layout/Dashboard/UserDashboard/UserDashboard";
 import Posts from "../Pages/DashboardUserPages/Posts/Posts";
 import Saved from "../Pages/DashboardUserPages/Saved/Saved";
 import Favourites from "../Pages/DashboardUserPages/Favourites/Favourites";
@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
         path: "",
         element: (
           <PrivateRoutes>
-            <UserHome />
+            <UserDashboard />
           </PrivateRoutes>
         ),
         children: [

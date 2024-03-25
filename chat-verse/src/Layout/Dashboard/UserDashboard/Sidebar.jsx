@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { FaHome, FaRegNewspaper, FaBookmark, FaStar } from "react-icons/fa";
+import { useEffect, useRef } from "react";
+import useData from "../../../Hooks/data/useData";
 
 const activeClass = ({ isActive, isPending }) =>
   isPending
@@ -9,8 +11,31 @@ const activeClass = ({ isActive, isPending }) =>
     : "text-xl flex items-center pl-5 gap-3 py-3 rounded-md";
 
 const Sidebar = () => {
+  const { showSidebar, setShowSidebar } = useData();
+  const sidebarRef = useRef();
+
+  const handleClickOutside = () => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setShowSidebar(!showSidebar);
+    }
+  };
+
+  useEffect(() => {
+    if (showSidebar) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showSidebar]);
+
   return (
-    <div className={`hidden lg:block w-[250px] font-rubik`}>
+    <div
+      ref={sidebarRef}
+      className={`${
+        showSidebar ? "bg-gray-300 h-screen" : "hidden"
+      } lg:block w-[250px] font-rubik`}
+    >
       <ul className="space-y-3">
         <li>
           <NavLink to={"/home"} className={activeClass}>

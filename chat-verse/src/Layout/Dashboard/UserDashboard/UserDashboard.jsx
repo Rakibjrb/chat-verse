@@ -1,17 +1,17 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
-const UserHome = () => {
+const UserDashboard = () => {
   return (
     <div className="2xl:mt-5 flex">
       <div>
         <Sidebar />
       </div>
-      <div>
+      <div className="2xl:ml-3">
         <Outlet />
       </div>
     </div>
   );
 };
 
-export default UserHome;
+export default UserDashboard;

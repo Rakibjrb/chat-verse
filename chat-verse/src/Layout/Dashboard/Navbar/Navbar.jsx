@@ -10,6 +10,7 @@ import useAuth from "../../../Hooks/auth/useAuth";
 import Modal from "../../../Components/Shared/Modal/Modal";
 import Messages from "../../../Components/Messages/Messages";
 import Notifications from "../../../Components/Notifications/Notifications";
+import useData from "../../../Hooks/data/useData";
 
 const links = (
   <>
@@ -54,6 +55,7 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const navOpenRef = useRef();
   const { logout } = useAuth();
+  const { showSidebar, setShowSidebar } = useData();
 
   const handleClickOutside = () => {
     if (navOpenRef.current && !navOpenRef.current.contains(event.target)) {
@@ -74,7 +76,10 @@ const Navbar = () => {
     <>
       <nav className="shadow-lg rounded-xl flex justify-between items-center pr-4 py-4">
         <div className="flex items-center">
-          <button className="ml-4 lg:hidden mr-1">
+          <button
+            onClick={() => setShowSidebar(!showSidebar)}
+            className="ml-4 lg:hidden mr-1"
+          >
             <FaBarsStaggered className="text-2xl" />
           </button>
           <div className="flex items-center">

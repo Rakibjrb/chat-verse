@@ -1,10 +1,15 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const data = {};
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const data = {
+    showSidebar,
+    setShowSidebar,
+  };
 
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };
