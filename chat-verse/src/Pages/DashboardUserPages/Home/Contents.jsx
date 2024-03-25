@@ -12,8 +12,8 @@ const posts = [
     caption:
       "this is caption this is caption this is caption vthis is caption this is caption this is caption this is caption",
     image: "https://i.ibb.co/Rvy7Xh7/redcar2.png",
-    linke: 2000,
-    share: 200,
+    like: 22000,
+    disLike: 2100,
   },
   {
     user: {
@@ -24,8 +24,20 @@ const posts = [
     caption:
       "this is caption this is caption this is caption vthis is caption this is caption this is caption this is caption",
     image: "https://i.ibb.co/Rvy7Xh7/redcar2.png",
-    linke: 800,
-    share: 100,
+    like: 800,
+    disLike: 100,
+  },
+  {
+    user: {
+      userImage: "https://i.ibb.co/5x441PC/user.png",
+      userName: "Rakibul Hasan",
+    },
+    postedOn: "12-09-2004",
+    caption:
+      "this is caption this is caption this is caption vthis is caption this is caption this is caption this is caption",
+    image: "https://i.ibb.co/Rvy7Xh7/redcar2.png",
+    like: 800,
+    disLike: 20,
   },
 ];
 
