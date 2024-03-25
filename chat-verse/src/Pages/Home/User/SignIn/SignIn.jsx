@@ -29,7 +29,7 @@ const SignIn = ({ setIsOpen }) => {
         setTimeout(() => {
           setLoading(false);
           toast.success("Sign In successful");
-          navigate("/dashboard");
+          navigate("/home");
         }, 1000);
 
         if (setIsOpen) {

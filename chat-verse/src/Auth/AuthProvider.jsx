@@ -27,7 +27,10 @@ const AuthProvider = ({ children }) => {
 
   const logout = () => {
     signOut(auth)
-      .then(() => toast.success("sign out success"))
+      .then(() => {
+        setUser(null);
+        toast.success("sign out success");
+      })
       .catch(() => toast.error("something went wrong"));
   };
 

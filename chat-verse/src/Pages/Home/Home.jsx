@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!loading && user) {
-      navigate("/dashboard");
+      navigate("/home");
     }
   }, [loading, user, navigate]);
 
