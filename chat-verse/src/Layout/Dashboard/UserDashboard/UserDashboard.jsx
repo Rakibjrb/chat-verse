@@ -3,11 +3,11 @@ import Sidebar from "./Sidebar";
 
 const UserDashboard = () => {
   return (
-    <div className="2xl:mt-5 flex">
+    <div className="pt-2 flex">
       <div>
         <Sidebar />
       </div>
-      <div className="2xl:ml-3">
+      <div className="px-2 lg:pl-1 lg:pr-0 w-full h-screen overflow-hidden">
         <Outlet />
       </div>
     </div>
