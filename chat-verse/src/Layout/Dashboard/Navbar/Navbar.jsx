@@ -74,7 +74,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="shadow-lg rounded-xl flex justify-between items-center pr-4 py-4">
+      <nav className="bg-white shadow-md rounded-xl flex justify-between items-center pr-4 py-4">
         <div className="flex items-center">
           <button
             onClick={() => setShowSidebar(!showSidebar)}
