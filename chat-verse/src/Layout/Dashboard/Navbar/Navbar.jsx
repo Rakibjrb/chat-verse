@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaHome } from "react-icons/fa";
 import { IoMdArrowDropright, IoMdSettings } from "react-icons/io";
 import { IoLogOut } from "react-icons/io5";
 import { FaBarsStaggered } from "react-icons/fa6";
@@ -20,7 +20,7 @@ const links = (
         className="hover:text-green-500 transition-all flex justify-between items-center gap-3 text-xl"
       >
         <div className="flex justify-between items-center gap-3">
-          <FaUser className="text-xl" /> Home
+          <FaHome className="text-xl" /> Home
         </div>{" "}
         <IoMdArrowDropright />
       </Link>
@@ -116,12 +116,12 @@ const Navbar = () => {
                     ? user?.photoURL
                     : "https://i.ibb.co/5x441PC/user.png"
                 }
-                alt=""
+                alt="user profile image"
               />
             </button>
             <ul
               ref={navOpenRef}
-              className={`absolute -right-4 top-14 bg-white w-[270px] p-8 rounded-md space-y-5 ${
+              className={`absolute -right-4 top-14 bg-gray-100 w-[270px] p-8 rounded-md space-y-5 ${
                 show ? "" : "hidden"
               }`}
             >

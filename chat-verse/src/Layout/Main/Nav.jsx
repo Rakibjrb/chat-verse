@@ -4,23 +4,31 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import logoLight from "../../assets/Logo/logo-light.png";
 import Modal from "../../Components/Shared/Modal/Modal";
-import SignIn from "./User/SignIn/SignIn";
+import SignIn from "../../Pages/Home/User/SignIn/SignIn";
+import ContactForm from "../../Components/ContactForm/ContactForm";
+
+const activeClass = ({ isActive, isPending }) =>
+  isPending
+    ? "pending"
+    : isActive
+    ? "text-xl hover:text-green-500 transition-colors text-green-500 uppercase"
+    : "text-xl hover:text-green-500 transition-colors uppercase";
 
 const links = (
   <>
     <li>
-      <NavLink className={"text-xl hover:text-green-500 transition-colors"}>
+      <NavLink to={""} className={activeClass}>
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to={"/features"} className={activeClass}>
         Features
       </NavLink>
     </li>
     <li>
-      <NavLink className={"text-xl hover:text-green-500 transition-colors"}>
+      <NavLink to={"/feedback"} className={activeClass}>
         Feedback
-      </NavLink>
-    </li>
-    <li>
-      <NavLink className={"text-xl hover:text-green-500 transition-colors"}>
-        Contact Us
       </NavLink>
     </li>
   </>
@@ -29,6 +37,7 @@ const links = (
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
   const navRef = useRef();
 
   const handleClickOutside = () => {
@@ -36,6 +45,17 @@ const Nav = () => {
       setShow(!show);
     }
   };
+
+  const contact = (
+    <li>
+      <button
+        onClick={() => setShowContactForm(true)}
+        className={"text-xl hover:text-green-500 transition-colors uppercase"}
+      >
+        Contact Us
+      </button>
+    </li>
+  );
 
   useEffect(() => {
     if (show) {
@@ -57,6 +77,7 @@ const Nav = () => {
           />
           <ul className="items-center gap-4 hidden lg:flex">
             {links}
+            {contact}
             <li
               onClick={() => setIsOpen(true)}
               className="text-xl hover:cursor-pointer px-4 py-2 bg-green-500 hover:bg-gray-300 transition-colors rounded-md text-center lg:text-left"
@@ -75,6 +96,7 @@ const Nav = () => {
               } transition-all duration-300`}
             >
               {links}
+              {contact}
               <li
                 onClick={() => setIsOpen(true)}
                 className="text-xl hover:cursor-pointer px-4 py-2 bg-green-500 hover:bg-gray-300 transition-colors rounded-md text-center lg:text-left"
@@ -87,6 +109,9 @@ const Nav = () => {
       </div>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
         <SignIn setIsOpen={setIsOpen} />
+      </Modal>
+      <Modal isOpen={showContactForm} setIsOpen={setShowContactForm}>
+        <ContactForm />
       </Modal>
     </>
   );
