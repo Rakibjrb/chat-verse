@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
@@ -6,6 +6,7 @@ import logoLight from "../../assets/Logo/logo-light.png";
 import Modal from "../../Components/Shared/Modal/Modal";
 import SignIn from "../../Pages/Home/User/SignIn/SignIn";
 import ContactForm from "../../Components/ContactForm/ContactForm";
+import useMenu from "../../Hooks/useMenu";
 
 const activeClass = ({ isActive, isPending }) =>
   isPending
@@ -39,12 +40,7 @@ const Nav = () => {
   const [show, setShow] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const navRef = useRef();
-
-  const handleClickOutside = () => {
-    if (navRef.current && !navRef.current.contains(event.target)) {
-      setShow(!show);
-    }
-  };
+  useMenu(show, navRef, setShow);
 
   const contact = (
     <li>
@@ -56,15 +52,6 @@ const Nav = () => {
       </button>
     </li>
   );
-
-  useEffect(() => {
-    if (show) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [show]);
 
   return (
     <>

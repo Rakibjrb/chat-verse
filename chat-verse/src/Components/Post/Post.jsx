@@ -2,11 +2,15 @@ import PropTypes from "prop-types";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { BiLike, BiDislike, BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { FaRegComment } from "react-icons/fa";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useMenu from "../../Hooks/useMenu";
 
 const Post = ({ post }) => {
   const [isLike, setIsLike] = useState(false);
   const [isDisLike, setIsDisLike] = useState(false);
+  const [isPostMenuOpen, setIsPostMenuOpen] = useState(false);
+  const postMenuRef = useRef();
+  useMenu(isPostMenuOpen, postMenuRef, setIsPostMenuOpen);
 
   const handleLike = () => {
     setIsLike(true);
@@ -28,13 +32,41 @@ const Post = ({ post }) => {
             <h3>{post?.postedOn}</h3>
           </div>
         </div>
-        <div>
-          <button className="text-2xl p-1 hover:bg-gray-200 rounded-lg hover:shadow-lg">
+
+        <div className="relative">
+          <button
+            onClick={() => {
+              setIsPostMenuOpen(!isPostMenuOpen);
+            }}
+            className="text-2xl p-1 hover:bg-gray-200 rounded-lg hover:shadow-lg"
+          >
             <BsThreeDotsVertical />
           </button>
+
+          <ul
+            ref={postMenuRef}
+            className={`${
+              isPostMenuOpen ? "" : "hidden"
+            } absolute right-0 bg-slate-50 w-[200px] rounded-lg`}
+          >
+            <li className="px-8 py-4 hover:bg-green-400 rounded-lg">
+              <button>Save Post</button>
+            </li>
+            <li className="px-8 py-4 hover:bg-green-400 rounded-lg">
+              <button>Add to Favourites</button>
+            </li>
+            <li className="px-8 py-4 hover:bg-green-400 rounded-lg">
+              <button>Edit Post</button>
+            </li>
+            <li className="px-8 py-4 hover:bg-green-400 rounded-lg">
+              <button>Delete</button>
+            </li>
+          </ul>
         </div>
       </div>
+
       <p className="my-6">{post?.caption}</p>
+
       <div className="w-full xl:h-[450px]">
         <img
           className="w-full h-full rounded-md xl:object-cover"

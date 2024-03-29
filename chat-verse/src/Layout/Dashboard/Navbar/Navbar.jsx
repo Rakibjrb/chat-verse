@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { FaUser, FaHome } from "react-icons/fa";
 import { IoMdArrowDropright, IoMdSettings } from "react-icons/io";
 import { IoLogOut } from "react-icons/io5";
 import { FaBarsStaggered } from "react-icons/fa6";
+import { MdOutlineClose } from "react-icons/md";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/Logo/Logo.png";
 import useAuth from "../../../Hooks/auth/useAuth";
@@ -11,6 +12,7 @@ import Modal from "../../../Components/Shared/Modal/Modal";
 import Messages from "../../../Components/Messages/Messages";
 import Notifications from "../../../Components/Notifications/Notifications";
 import useData from "../../../Hooks/data/useData";
+import useMenu from "../../../Hooks/useMenu";
 
 const links = (
   <>
@@ -56,21 +58,7 @@ const Navbar = () => {
   const navOpenRef = useRef();
   const { user, logout } = useAuth();
   const { showSidebar, setShowSidebar } = useData();
-
-  const handleClickOutside = () => {
-    if (navOpenRef.current && !navOpenRef.current.contains(event.target)) {
-      setShow(!show);
-    }
-  };
-
-  useEffect(() => {
-    if (show) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [show]);
+  useMenu(show, navOpenRef, setShow);
 
   return (
     <>
@@ -80,7 +68,11 @@ const Navbar = () => {
             onClick={() => setShowSidebar(!showSidebar)}
             className="ml-4 lg:hidden mr-1"
           >
-            <FaBarsStaggered className="text-2xl" />
+            {showSidebar ? (
+              <MdOutlineClose className="text-2xl" />
+            ) : (
+              <FaBarsStaggered className="text-2xl" />
+            )}
           </button>
           <div className="flex items-center">
             <img className="w-[50px] h-[40px]" src={logo} alt="logo" />
