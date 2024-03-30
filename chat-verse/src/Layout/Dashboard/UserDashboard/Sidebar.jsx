@@ -1,5 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { FaHome, FaRegNewspaper, FaBookmark, FaStar } from "react-icons/fa";
+import {
+  FaHome,
+  FaRegNewspaper,
+  FaBookmark,
+  FaStar,
+  FaUserFriends,
+} from "react-icons/fa";
 import useData from "../../../Hooks/data/useData";
 
 const activeClass = ({ isActive, isPending }) =>
@@ -23,6 +29,12 @@ const Sidebar = () => {
           <NavLink to={"/home"} className={activeClass}>
             <FaHome />
             <h3>Home</h3>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={"/home/peoples"} className={activeClass}>
+            <FaUserFriends />
+            <h3>Peoples</h3>
           </NavLink>
         </li>
         <li>

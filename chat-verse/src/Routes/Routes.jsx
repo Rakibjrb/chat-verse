@@ -11,6 +11,7 @@ import Saved from "../Pages/DashboardUserPages/Saved/Saved";
 import Favourites from "../Pages/DashboardUserPages/Favourites/Favourites";
 import UserProfile from "../Pages/DashboardPages/UserProfile/UserProfile";
 import ProfileSettings from "../Pages/DashboardPages/ProfileSettings/ProfileSettings";
+import Peoples from "../Pages/DashboardUserPages/Peoples/Peoples";
 
 const routes = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const routes = createBrowserRouter([
             element: (
               <PrivateRoutes>
                 <HomePage />
+              </PrivateRoutes>
+            ),
+          },
+          {
+            path: "peoples",
+            element: (
+              <PrivateRoutes>
+                <Peoples />
               </PrivateRoutes>
             ),
           },
