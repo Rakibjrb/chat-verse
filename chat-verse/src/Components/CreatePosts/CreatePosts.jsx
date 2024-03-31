@@ -39,7 +39,7 @@ const CreatePosts = () => {
             }
             alt=""
           />
-          <div className="bg-gray-100 rounded-lg py-2 text-xl px-4 text-gray-400 w-full hover:cursor-pointer">
+          <div className="bg-gray-100 rounded-lg py-2 text-xl px-4 text-gray-400 hover:bg-gray-200 w-full hover:cursor-pointer transition-colors">
             {"What's on your mind ?"}
           </div>
         </div>

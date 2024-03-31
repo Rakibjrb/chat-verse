@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import CreatePosts from "../../../Components/CreatePosts/CreatePosts";
 import Post from "../../../Components/Post/Post";
-import Story from "../../../Components/Stories/Story";
+import Posters from "../../../Components/Posters/Posters";
 
 const posts = [
   {
@@ -50,7 +50,7 @@ const Contents = () => {
 
   return (
     <div id="homeContents" className="h-[calc(100vh-94px)] overflow-y-auto">
-      <Story />
+      <Posters />
       <CreatePosts />
       <div className="mt-5 space-y-5">
         {posts?.map((post, index) => (
