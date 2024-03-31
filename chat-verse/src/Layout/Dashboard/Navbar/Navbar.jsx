@@ -98,7 +98,7 @@ const Navbar = () => {
           <Messages />
           <div className="relative">
             <button
-              onClick={() => setShow(!show)}
+              onClick={() => setShow(true)}
               className="flex items-center rounded-full"
             >
               <img
@@ -113,7 +113,7 @@ const Navbar = () => {
             </button>
             <ul
               ref={navOpenRef}
-              className={`absolute -right-4 top-14 bg-gray-100 w-[270px] p-8 rounded-md space-y-5 ${
+              className={`z-30 absolute -right-4 top-14 bg-gray-100 w-[270px] p-8 rounded-md space-y-5 ${
                 show ? "" : "hidden"
               }`}
             >
