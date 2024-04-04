@@ -8,22 +8,22 @@ const posters = [
   {
     userImage: "https://i.ibb.co/5x441PC/user.png",
     userName: "Rakibul Hasan",
-    posterText: "This is poster text",
+    posterImage: "https://i.ibb.co/syVcfRf/blog9-900x709.jpg",
   },
   {
     userImage: "https://i.ibb.co/5x441PC/user.png",
     userName: "Rakib Hasan",
-    posterText: "I hate my mind",
+    posterImage: "https://i.ibb.co/syVcfRf/blog9-900x709.jpg",
   },
   {
     userImage: "https://i.ibb.co/5x441PC/user.png",
     userName: "Rakib Hasan",
-    posterText: "I love u ",
+    posterImage: "https://i.ibb.co/syVcfRf/blog9-900x709.jpg",
   },
   {
     userImage: "https://i.ibb.co/5x441PC/user.png",
     userName: "Rakib Hasan",
-    posterText: "I love u too",
+    posterImage: "https://i.ibb.co/syVcfRf/blog9-900x709.jpg",
   },
 ];
 
@@ -66,9 +66,13 @@ const Posters = () => {
                     <h3 className="text-sm text-gray-800">{poster.userName}</h3>
                   </div>
                   <div
-                    className={`w-full h-full flex items-center text-center justify-center`}
+                    className={`w-full h-full flex items-center text-center justify-center rounded-lg`}
                   >
-                    <h2 className="w-[96%]">{poster.posterText}</h2>
+                    <img
+                      className="w-full h-full rounded-lg"
+                      src={poster.posterImage}
+                      alt="poster image"
+                    />
                   </div>
                 </div>
               </SwiperSlide>
@@ -94,9 +98,13 @@ const Posters = () => {
                     <h3 className="text-sm text-gray-800">{poster.userName}</h3>
                   </div>
                   <div
-                    className={`w-full h-full flex items-center text-center justify-center`}
+                    className={`w-full h-full flex items-center text-center justify-center rounded-lg`}
                   >
-                    <h2 className="w-[96%]">{poster.posterText}</h2>
+                    <img
+                      className="w-full h-full rounded-lg"
+                      src={poster.posterImage}
+                      alt="poster image"
+                    />
                   </div>
                 </div>
               </SwiperSlide>
@@ -122,9 +130,13 @@ const Posters = () => {
                     <h3 className="text-sm text-gray-800">{poster.userName}</h3>
                   </div>
                   <div
-                    className={`w-full h-full flex items-center text-center justify-center`}
+                    className={`w-full h-full flex items-center text-center justify-center rounded-lg`}
                   >
-                    <h2 className="w-[96%]">{poster.posterText}</h2>
+                    <img
+                      className="w-full h-full rounded-lg"
+                      src={poster.posterImage}
+                      alt="poster image"
+                    />
                   </div>
                 </div>
               </SwiperSlide>

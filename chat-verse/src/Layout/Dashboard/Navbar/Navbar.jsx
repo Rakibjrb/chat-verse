@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { FiSearch } from "react-icons/fi";
 import { FaUser, FaHome } from "react-icons/fa";
 import { IoMdArrowDropright, IoMdSettings } from "react-icons/io";
 import { IoLogOut } from "react-icons/io5";
@@ -82,18 +81,6 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-2 md:gap-4">
-          <div className="hidden md:block">
-            <div className="flex items-center border-2 border-gray-300 py-1 px-3 rounded-xl bg-gray-200">
-              <input
-                className="outline-none pr-2 bg-transparent"
-                type="text"
-                placeholder="Search for posts"
-              />
-              <button>
-                <FiSearch />
-              </button>
-            </div>
-          </div>
           <Notifications />
           <Messages />
           <div className="relative">
