@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import useScroll from "../../../Hooks/useScroll";
 
 const notifications = [
   {
@@ -79,18 +79,13 @@ const notifications = [
   {
     img: "https://i.ibb.co/7KFKNTF/team-2.jpg",
     message:
-      "Refayet Hasan Rakibul Hasan notifications Rakibul Hasan notifications",
+      "Refayet Hasan Rakibul Hasan notifications Rakibul Hasan notifications test",
     name: "Rakibul Hasan",
   },
 ];
 
 const Notifications = () => {
-  useEffect(() => {
-    const notificationsContainer = document.getElementById(
-      "notificationsContainer"
-    );
-    notificationsContainer.scrollIntoView({ block: "end" });
-  }, []);
+  useScroll("notificationsContainer");
 
   return (
     <div

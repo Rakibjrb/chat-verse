@@ -1,7 +1,7 @@
-import { useEffect } from "react";
 import CreatePosts from "../../../Components/CreatePosts/CreatePosts";
 import Post from "../../../Components/Post/Post";
 import Posters from "../../../Components/Posters/Posters";
+import useScroll from "../../../Hooks/useScroll";
 
 const posts = [
   {
@@ -43,10 +43,7 @@ const posts = [
 ];
 
 const Contents = () => {
-  useEffect(() => {
-    const homeContents = document.getElementById("homeContents");
-    homeContents.scrollIntoView({ block: "end" });
-  }, []);
+  useScroll("homeContents");
 
   return (
     <div id="homeContents" className="h-[calc(100vh-94px)] overflow-y-auto">

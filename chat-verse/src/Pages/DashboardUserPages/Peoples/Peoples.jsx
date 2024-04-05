@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import useScroll from "../../../Hooks/useScroll";
 
 const peoples = [
   { img: "https://i.ibb.co/vwgbdfX/team-5.jpg", name: "Rakibul Hasan" },
@@ -19,10 +19,7 @@ const peoples = [
 ];
 
 const Peoples = () => {
-  useEffect(() => {
-    const container = document.getElementById("peopleContainer");
-    container.scrollIntoView({ block: "end" });
-  }, []);
+  useScroll("peopleContainer");
 
   return (
     <div

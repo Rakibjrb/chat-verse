@@ -3,7 +3,7 @@ import Nav from "./Nav";
 
 const Main = () => {
   return (
-    <div>
+    <div className="h-screen overflow-hidden">
       <Nav />
       <Outlet />
     </div>

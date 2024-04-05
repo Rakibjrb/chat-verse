@@ -1,12 +1,9 @@
-import { useEffect } from "react";
 import Peoples from "../../../Components/Peoples/Peoples";
 import Contents from "./Contents";
+import useScroll from "../../../Hooks/useScroll";
 
 const HomePage = () => {
-  useEffect(() => {
-    const homepage = document.getElementById("homepage");
-    homepage.scrollIntoView({ block: "end" });
-  }, []);
+  useScroll("homepage");
 
   return (
     <div

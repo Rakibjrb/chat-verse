@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import useScroll from "../../Hooks/useScroll";
 
 const peoples = [
   { img: "https://i.ibb.co/5x441PC/user.png", name: "Rakibul Hasan" },
@@ -27,10 +27,7 @@ const peoples = [
 ];
 
 const Peoples = () => {
-  useEffect(() => {
-    const peoples = document.getElementById("peoples");
-    peoples.scrollIntoView({ block: "end" });
-  }, []);
+  useScroll("peoples");
 
   return (
     <div
