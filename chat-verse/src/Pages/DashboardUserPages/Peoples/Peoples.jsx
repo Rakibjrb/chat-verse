@@ -33,9 +33,9 @@ const Peoples = () => {
         <h1 className="text-4xl font-semibold">Peoples</h1>
         <p className="text-3xl">Total {peoples?.length}</p>
       </div>
-      <div className="mt-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
+      <div className="mt-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 xl:gap-4">
         {peoples?.map((people, index) => (
-          <div key={`peoples${index}`} className="p-3 bg-slate-200">
+          <div key={`peoples${index}`} className="p-3 bg-white">
             <img
               className="w-full h-[150px] xl:h-[240px] mx-auto object-cover"
               src={people?.img}

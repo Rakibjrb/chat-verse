@@ -12,6 +12,7 @@ import Favourites from "../Pages/DashboardUserPages/Favourites/Favourites";
 import UserProfile from "../Pages/DashboardPages/UserProfile/UserProfile";
 import ProfileSettings from "../Pages/DashboardPages/ProfileSettings/ProfileSettings";
 import Peoples from "../Pages/DashboardUserPages/Peoples/Peoples";
+import Notifications from "../Pages/DashboardUserPages/Notifications/Notifications";
 
 const routes = createBrowserRouter([
   {
@@ -65,6 +66,14 @@ const routes = createBrowserRouter([
             element: (
               <PrivateRoutes>
                 <Posts />
+              </PrivateRoutes>
+            ),
+          },
+          {
+            path: "notifications",
+            element: (
+              <PrivateRoutes>
+                <Notifications />
               </PrivateRoutes>
             ),
           },
