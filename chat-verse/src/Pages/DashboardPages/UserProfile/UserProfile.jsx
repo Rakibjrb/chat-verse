@@ -7,7 +7,7 @@ const UserProfile = () => {
       <div className="hidden xl:block lg:w-1/4 p-3 bg-white rounded-lg">
         <ProfileCard />
       </div>
-      <div className="w-full xl:w-3/4 p-3 bg-white">
+      <div className="w-full xl:w-3/4 p-3">
         <ProfilePic />
       </div>
     </div>
