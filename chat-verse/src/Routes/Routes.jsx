@@ -13,6 +13,7 @@ import UserProfile from "../Pages/DashboardPages/UserProfile/UserProfile";
 import ProfileSettings from "../Pages/DashboardPages/ProfileSettings/ProfileSettings";
 import Peoples from "../Pages/DashboardUserPages/Peoples/Peoples";
 import Notifications from "../Pages/DashboardUserPages/Notifications/Notifications";
+import Chattings from "../Pages/DashboardUserPages/Chattings/Chattings";
 
 const routes = createBrowserRouter([
   {
@@ -94,6 +95,14 @@ const routes = createBrowserRouter([
             ),
           },
         ],
+      },
+      {
+        path: "chattings",
+        element: (
+          <PrivateRoutes>
+            <Chattings />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "user-profile",
