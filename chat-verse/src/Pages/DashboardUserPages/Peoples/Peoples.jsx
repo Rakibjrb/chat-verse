@@ -1,22 +1,5 @@
+import { peoples } from "../../../Components/Peoples/Peoples";
 import useScroll from "../../../Hooks/useScroll";
-
-const peoples = [
-  { img: "https://i.ibb.co/vwgbdfX/team-5.jpg", name: "Rakibul Hasan" },
-  { img: "https://i.ibb.co/7KFKNTF/team-2.jpg", name: "Refayet Hasan" },
-  { img: "https://i.ibb.co/1JH5f58/team-8.jpg", name: "Sihan Hasan" },
-  { img: "https://i.ibb.co/jWgsr4Y/team-4.jpg", name: "Fuad Hasan" },
-  { img: "https://i.ibb.co/5x441PC/user.png", name: "Midul Hosen" },
-  { img: "https://i.ibb.co/vwgbdfX/team-5.jpg", name: "Rakibul Hasan" },
-  { img: "https://i.ibb.co/7KFKNTF/team-2.jpg", name: "Refayet Hasan" },
-  { img: "https://i.ibb.co/1JH5f58/team-8.jpg", name: "Sihan Hasan" },
-  { img: "https://i.ibb.co/jWgsr4Y/team-4.jpg", name: "Fuad Hasan" },
-  { img: "https://i.ibb.co/5x441PC/user.png", name: "Midul Hosen" },
-  { img: "https://i.ibb.co/vwgbdfX/team-5.jpg", name: "Rakibul Hasan" },
-  { img: "https://i.ibb.co/7KFKNTF/team-2.jpg", name: "Refayet Hasan" },
-  { img: "https://i.ibb.co/1JH5f58/team-8.jpg", name: "Sihan Hasan" },
-  { img: "https://i.ibb.co/jWgsr4Y/team-4.jpg", name: "Fuad Hasan" },
-  { img: "https://i.ibb.co/5x441PC/user.png", name: "Midul Hosen" },
-];
 
 const Peoples = () => {
   useScroll("peopleContainer");

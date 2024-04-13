@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useScroll from "../../Hooks/useScroll";
 
-const peoples = [
+export const peoples = [
   { img: "https://i.ibb.co/5x441PC/user.png", name: "Rakibul Hasan" },
   { img: "https://i.ibb.co/5x441PC/user.png", name: "Refayet Hasan" },
   { img: "https://i.ibb.co/5x441PC/user.png", name: "Sihan Hasan" },

@@ -14,6 +14,8 @@ import ProfileSettings from "../Pages/DashboardPages/ProfileSettings/ProfileSett
 import Peoples from "../Pages/DashboardUserPages/Peoples/Peoples";
 import Notifications from "../Pages/DashboardUserPages/Notifications/Notifications";
 import Chattings from "../Pages/DashboardUserPages/Chattings/Chattings";
+import Messages from "../Pages/DashboardUserPages/Chattings/Message/Messages";
+import ChatBox from "../Pages/DashboardUserPages/Chattings/Message/ChatBox";
 
 const routes = createBrowserRouter([
   {
@@ -97,14 +99,6 @@ const routes = createBrowserRouter([
         ],
       },
       {
-        path: "chattings",
-        element: (
-          <PrivateRoutes>
-            <Chattings />
-          </PrivateRoutes>
-        ),
-      },
-      {
         path: "user-profile",
         element: (
           <PrivateRoutes>
@@ -119,6 +113,32 @@ const routes = createBrowserRouter([
             <ProfileSettings />
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "chattings",
+        element: (
+          <PrivateRoutes>
+            <Chattings />
+          </PrivateRoutes>
+        ),
+        children: [
+          {
+            path: "",
+            element: (
+              <PrivateRoutes>
+                <Messages />
+              </PrivateRoutes>
+            ),
+          },
+          {
+            path: ":id",
+            element: (
+              <PrivateRoutes>
+                <ChatBox />
+              </PrivateRoutes>
+            ),
+          },
+        ],
       },
     ],
   },
