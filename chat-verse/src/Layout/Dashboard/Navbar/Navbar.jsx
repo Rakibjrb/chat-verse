@@ -4,7 +4,7 @@ import { IoMdArrowDropright, IoMdSettings } from "react-icons/io";
 import { IoLogOut } from "react-icons/io5";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { MdOutlineClose } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../../assets/Logo/Logo.png";
 import useAuth from "../../../Hooks/auth/useAuth";
 import Modal from "../../../Components/Shared/Modal/Modal";
@@ -57,22 +57,31 @@ const Navbar = () => {
   const navOpenRef = useRef();
   const { user, logout } = useAuth();
   const { showSidebar, setShowSidebar } = useData();
+  const location = useLocation();
   useMenu(show, navOpenRef, setShow);
 
   return (
     <>
       <nav className="bg-white shadow-md rounded-xl flex justify-between items-center pr-4 py-4">
         <div className="flex items-center">
-          <button
-            onClick={() => setShowSidebar(!showSidebar)}
-            className="ml-4 lg:hidden mr-1"
-          >
-            {showSidebar ? (
-              <MdOutlineClose className="text-2xl" />
-            ) : (
-              <FaBarsStaggered className="text-2xl" />
-            )}
-          </button>
+          {location.pathname === "/home" ||
+          location.pathname === "/home/peoples" ||
+          location.pathname === "/home/saved" ||
+          location.pathname === "/home/favourites" ||
+          location.pathname === "/home/posts" ? (
+            <button
+              onClick={() => setShowSidebar(!showSidebar)}
+              className="ml-4 lg:hidden mr-1"
+            >
+              {showSidebar ? (
+                <MdOutlineClose className="text-2xl" />
+              ) : (
+                <FaBarsStaggered className="text-2xl" />
+              )}
+            </button>
+          ) : (
+            ""
+          )}
           <div className="flex items-center">
             <img className="w-[50px] h-[40px]" src={logo} alt="logo" />
             <h3 className="hidden md:block text-2xl -ml-2 font-bold">
