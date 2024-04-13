@@ -3,6 +3,10 @@ import { MdPhotoSizeSelectActual } from "react-icons/md";
 import { RiFolderVideoFill } from "react-icons/ri";
 import { BsEmojiHeartEyes } from "react-icons/bs";
 import useAuth from "../../Hooks/auth/useAuth";
+import { useState } from "react";
+import Modal from "../Shared/Modal/Modal";
+import PostCreate from "./PostCreate";
+import toast from "react-hot-toast";
 
 const postBtns = [
   {
@@ -24,7 +28,24 @@ const postBtns = [
 ];
 
 const CreatePosts = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
+
+  const handlePostCreator = (index) => {
+    if (index == 0) {
+      toast.error("Video Streaming feature not added yet...");
+      return;
+    } else if (index == 1) {
+      setIsOpen(true);
+      return;
+    } else if (index == 2) {
+      toast.error("Video Sharing feature not added yet...");
+      return;
+    } else if (index == 3) {
+      toast.error("Feeling Sharing feature not added yet...");
+      return;
+    }
+  };
 
   return (
     <>
@@ -39,13 +60,17 @@ const CreatePosts = () => {
             }
             alt=""
           />
-          <div className="bg-gray-100 rounded-lg py-2 text-xl px-4 text-gray-400 hover:bg-gray-200 w-full hover:cursor-pointer transition-colors">
+          <div
+            onClick={() => setIsOpen(true)}
+            className="bg-gray-100 rounded-lg py-2 text-xl px-4 text-gray-400 hover:bg-gray-200 w-full hover:cursor-pointer transition-colors"
+          >
             {"What's on your mind ?"}
           </div>
         </div>
         <div className="flex items-center justify-between mt-5 border-t-2 pt-5">
           {postBtns.map((item, index) => (
             <button
+              onClick={() => handlePostCreator(index)}
               key={`craetePostBtns${index}`}
               className="flex items-center justify-center flex-1 py-2 gap-3 text-xl hover:bg-gray-200 rounded-md"
             >
@@ -55,6 +80,10 @@ const CreatePosts = () => {
           ))}
         </div>
       </div>
+
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+        <PostCreate />
+      </Modal>
     </>
   );
 };
