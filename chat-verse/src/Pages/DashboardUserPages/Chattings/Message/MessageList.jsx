@@ -6,7 +6,7 @@ const activeClass = ({ isActive, isPending }) =>
   isPending
     ? "pending"
     : isActive
-    ? "text-xl flex items-center pl-2 gap-3 py-3 rounded-md bg-green-300"
+    ? "text-xl flex items-center pl-2 gap-3 py-3 rounded-md bg-green-400"
     : "text-xl flex items-center pl-2 gap-3 py-3 rounded-md";
 
 const MessageList = () => {
@@ -17,7 +17,7 @@ const MessageList = () => {
       <h1 className="text-xl font-semibold uppercase">Messages</h1>
       <div
         id="messageList"
-        className="mt-2 border-t-4 py-3 h-[calc(100vh-168px)] overflow-y-scroll"
+        className="mt-2 border-t-4 py-3 h-[calc(100vh-136px)] overflow-y-scroll"
       >
         {peoples?.map((people, index) => (
           <NavLink
